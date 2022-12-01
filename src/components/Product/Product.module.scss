@@ -1,0 +1,65 @@
+@import '../../index.scss';
+
+.picture {
+  width: 94vw;
+  height: 20vh;
+  margin: 0 auto;
+}
+
+.content {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  font-size: 3vw;
+
+  .description {
+    font-size: 3vw;
+  }
+
+  .button {
+    position: absolute;
+    top: 80%;
+    font-size: 2vw;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $accent;
+    background-color: transparent;
+    border: 1px #F5F5F5 solid;
+    padding: 0.8vh 3vw;
+
+    &:hover {
+      color: $dark-accent;
+      background-color: $accent;
+      transition: all .3s;
+    }
+  }
+}
+
+.title {
+  font-size: 3.5vw;
+  font-weight: bold;
+}
+
+.price {
+  display: flex;
+  position: absolute;
+  top: 30%;
+  list-style: none;
+  column-gap: 6vw;
+
+  span {
+    display: block;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2vh;
+    margin-bottom: 1.5vh;
+  }
+
+  .cost::after {
+    content: '₽';
+  }
+
+}

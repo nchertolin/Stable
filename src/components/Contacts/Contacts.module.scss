@@ -1,0 +1,22 @@
+.address {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 2vh;
+  font-style: normal;
+  margin-bottom: 3.5vh;
+
+  img {
+    width: 2.5vh;
+    height: 2.5vh;
+  }
+}
+
+.tel,
+.mail,
+.geo {
+  display: flex;
+  column-gap: 2.5vw;
+  align-items: center;
+  justify-content: center;
+}
