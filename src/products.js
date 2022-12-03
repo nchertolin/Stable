@@ -11,7 +11,6 @@ import other1 from './assets/pictures/other/1.jpg';
 import other2 from './assets/pictures/other/2.jpg';
 import other3 from './assets/pictures/other/3.jpg';
 
-
 const programms = [
   {
     title: 'Двухфазная программа',

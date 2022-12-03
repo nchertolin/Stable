@@ -13,15 +13,14 @@ export default function Product({ title, picture, prices, description }) {
   const descriptionRef = useRef(null);
   const buttonRef = useRef(null);
   return (
-    <div className='relative-div'>
-      <img className={styles.picture} src={picture} alt="" />
+    <div className={styles.picture} style={{ background: `url(${picture}) no-repeat`, backgroundSize: '100%' }}>
       <div className={styles.content}>
-        <div ref={contentRef} >
+        <div className={styles.inner} ref={contentRef} >
           <p className={styles.title}>{title}</p>
           <ul className={styles.price}>
             {prices.map((price, index) =>
               <li key={v4()}>
-                <span key={v4()}>{index + 1}<br />класс</span>
+                {/* <span key={v4()}>{index + 1}<br />класс</span> */}
                 <span className={styles.cost} key={v4()}>{price}</span>
               </li>
             )}

@@ -1,9 +1,35 @@
 @import '../../index.scss';
 
 .picture {
-  width: 94vw;
-  height: 20vh;
+  position: relative;
+
+  @media (min-width: 1200px) {
+    width: 65vw;
+    height: 30vw;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    width: 70vw;
+    height: 35vw;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 90vw;
+    height: 43vw;
+  }
+
+  @media (max-width: 767px) {
+    width: 94vw;
+    height: 45vw;
+  }
+
+  @media (max-width: 480px) {
+    width: 94vw;
+    height: 45vw;
+  }
+
   margin: 0 auto;
+  margin-bottom: 4vw;
 }
 
 .content {
@@ -12,23 +38,57 @@
   height: 80%;
   top: 10%;
   left: 10%;
-  font-size: 3vw;
 
-  .description {
+  @media (min-width: 1200px) {
+    font-size: 1vw;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    font-size: 1.3vw;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 2vw;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 2.3vw;
+  }
+
+  @media (max-width: 480px) {
     font-size: 3vw;
   }
 
   .button {
+    @media (min-width: 1200px) {
+      font-size: 0.7vw;
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+      font-size: 1vw;
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      font-size: 1.2vw;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 1.7vw;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2vw;
+    }
+
     position: absolute;
-    top: 80%;
-    font-size: 2vw;
+    bottom: 0;
     font-weight: 600;
     text-decoration: none;
     text-transform: uppercase;
     color: $accent;
     background-color: transparent;
-    border: 1px #F5F5F5 solid;
-    padding: 0.8vh 3vw;
+    border: 1px $accent solid;
+    padding: 1vh 2.5vh;
 
     &:hover {
       color: $dark-accent;
@@ -39,14 +99,33 @@
 }
 
 .title {
-  font-size: 3.5vw;
+  @media (min-width: 1200px) {
+    font-size: 1.2vw;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    font-size: 2vw;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 2.5vw;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 2.7vw;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 3.5vw;
+  }
+
   font-weight: bold;
 }
 
 .price {
   display: flex;
   position: absolute;
-  top: 30%;
+  bottom: 40%;
   list-style: none;
   column-gap: 6vw;
 
@@ -54,7 +133,6 @@
     display: block;
     font-weight: 500;
     text-align: center;
-    line-height: 1.2vh;
     margin-bottom: 1.5vh;
   }
 

@@ -6,7 +6,7 @@ import Menu from '../Menu/Menu';
 export default function Layout({ isMenuActive, setMenuActive }) {
   return (
     <div>
-      <Header setMenuActive={setMenuActive} />
+      <Header isMenuActive={isMenuActive} setMenuActive={setMenuActive} />
       <Outlet />
       <Menu isActive={isMenuActive} setActive={setMenuActive} />
     </div>

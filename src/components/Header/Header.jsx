@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import menu from '../../assets/icons/menu.svg';
-
-export default function Header({ setMenuActive }) {
+export default function Header({ isMenuActive, setMenuActive }) {
   return (
     <header>
-      <button className={styles.menu} onClick={setMenuActive}>
-        <img src={menu} alt="" />
-      </button>
-    </header>
+      {
+        isMenuActive ? <button button className={styles.close} onClick={setMenuActive}>Скрыть</button>
+          : <button className={styles.menu} onClick={setMenuActive}>Меню</button>
+      }
+    </header >
   )
 }

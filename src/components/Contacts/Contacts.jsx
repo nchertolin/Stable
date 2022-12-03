@@ -19,7 +19,7 @@ export default function Contacts() {
         </div>
         <div className={styles.geo}>
           <img src={geo} alt="" />
-          <p>Ханты-Мансийск, ул. Затонская, 27</p>
+          <a rel="noopener noreferrer" href='https://yandex.ru/maps/-/CCUjqRqYsB' target="_blank">Ханты-Мансийск, ул. Затонская, 27</a>
         </div>
       </address>
     </div>
