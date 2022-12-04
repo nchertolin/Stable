@@ -1,29 +1,112 @@
-.address {
+.contacts {
+  position: relative;
+
+  @media (min-width: 1199px) {
+    width: 80vw;
+    height: 50vh;
+  }
+
+  @media (max-width: 480px) {
+    width: 90vw;
+    height: 50vh;
+    flex-direction: column;
+  }
+
+  margin: 0 auto;
+  margin-bottom: 4vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 2vh;
-  font-style: normal;
-  margin-bottom: 5vw;
 
-  img {
-    width: 2.5vh;
+  .content {
+    display: flex;
+
+    @media (min-width: 1199px) {
+      width: 50%;
+      height: 100%;
+    }
+
+    @media (max-width: 480px) {
+      width: 100%;
+      height: 50%;
+    }
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f;
+
+    .address {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      row-gap: 2vh;
+      font-style: normal;
+      margin-bottom: 5vw;
+      margin: 0;
+
+      img {
+        width: 2.5vh;
+      }
+
+      .tel,
+      .mail,
+      .geo {
+        display: flex;
+        column-gap: 2.5vh;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &:active {
+          opacity: 0.3;
+        }
+      }
+    }
   }
-}
 
-.tel,
-.mail,
-.geo {
-  display: flex;
-  column-gap: 2.5vh;
-  align-items: center;
-  justify-content: center;
+  .info {
+    display: flex;
 
-  &:hover {
-    opacity: 0.5;
+    @media (min-width: 1199px) {
+      width: 50%;
+      height: 100%;
+    }
+
+    @media (max-width: 480px) {
+      width: 100%;
+      height: 50%;
+    }
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #121212;
+    color: white;
+    background-color: rgba($color: #333232, $alpha: 1.0);
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      row-gap: 3vh;
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 3vh;
+
+        .date {
+          background-color: #1f1f1f;
+          color: white;
+          padding: 1vh 2vh;
+          border-radius: 2vh;
+        }
+      }
+    }
   }
 
-  &:active {
-    opacity: 0.3;
-  }
+
 }
