@@ -21,12 +21,13 @@ export default function Product({ title, picture, prices, times, description }) 
             {prices.map((price, index) =>
               <li key={v4()}>
                 {/* <span key={v4()}>{index + 1}<br />класс</span> */}
+                <span className={styles.class} key={v4()}>{index + 1} класс</span>
                 <span className={styles.cost} key={v4()}>{price}</span>
               </li>
             )}
           </ul>
-          {/* <span className={styles.time}>{times[0]} — {times[1]}</span> */}
-          <span className={styles.time}>40мин — 1ч 20мин</span>
+          <span className={styles.time}>{times[0]} — {times[1]}</span>
+          {/* <span className={styles.time}>40мин — 1ч 20мин</span> */}
         </div>
         {/* <div className={`${styles.description} hidden`} ref={descriptionRef}>{descriptions}</div> */}
         <div className={`${styles.description} hidden`} ref={descriptionRef}>

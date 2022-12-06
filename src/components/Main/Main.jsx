@@ -13,8 +13,8 @@ export default function Main() {
     <>
       <VideoBlock title='Автомойка Конюшня.' slogan='Приведи своего железного коня в порядок.' buttonText='Записаться' video={mainVideo}
         setFormActive={() => menuHandler(isFormActive, setFormActive)} />
-      <VideoBlock slogan='Для кристально чистого автомобиля снаружи и внутри.' buttonText='Больше услуг' video={serviceVideo} to='/programms' />
-      <VideoBlock title='Наша философия.' slogan='Мы работаем усердно. Мы заботимся. Мы веселимся.' buttonText='Подробнее' video={aboutVideo} to='/other' />
+      <VideoBlock slogan='Для кристально чистого автомобиля снаружи и внутри.' buttonText='Показать' video={serviceVideo} to='/programms' />
+      <VideoBlock title='Наша философия.' slogan='Мы работаем усердно. Мы заботимся. Мы веселимся.' video={aboutVideo} to='/other' />
       <Contacts />
       <Form isActive={isFormActive} setActive={() => menuHandler(isFormActive, setFormActive)} />
     </>

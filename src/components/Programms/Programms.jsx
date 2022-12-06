@@ -9,7 +9,8 @@ export default function Programms({ slogan, programms, banner }) {
     <div>
       <PictureBlock slogan={slogan} picture={banner} />
       <div className={styles.programms}>
-        {programms.map(({ title, picture, prices, description }) => <Product key={v4()} title={title} picture={picture} prices={prices} description={description} />)}
+        {programms.map(({ title, picture, prices, times, description }) => <Product key={v4()} title={title}
+          picture={picture} prices={prices} times={times} description={description} />)}
       </div >
     </div>
   );

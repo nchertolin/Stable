@@ -2,31 +2,19 @@ import { React, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './Form.module.scss';
 import flag from '../../assets/icons/russia.svg';
-import IMask from 'imask';
-
-const sendData = (name, phone, onFinally, info, infoError) => {
-  fetch(`https://api.telegram.org/bot5692087584:AAF5Jt4Wardrkb57J-m-IaWSCvNl3aMh5C4/sendMessage?chat_id=-1001639677585&text=${name}, 7 ${phone}`)
-    .then((response) => {
-      if (response.ok) {
-        info.current.classList.remove(styles.hidden);
-      } else throw new Error();
-    })
-    .catch(() => infoError.current.classList.remove(styles.hidden))
-    .finally(onFinally);
-}
+import { phoneMask, sendData } from '../../api.js';
 
 export default function Form({ isActive, setActive }) {
-  const { register, formState: { errors, }, getValues, setValue, handleSubmit, reset } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
+  const { register, formState: { errors, }, handleSubmit, reset } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
   const submitButton = useRef(null)
   const info = useRef(null);
   const infoError = useRef(null);
 
   const onSubmit = ({ name, phone }) => {
-    console.log(getValues());
     submitButton.current.disabled = true;
-    sendData(name, phone, () => submitButton.current.disabled = false, info, infoError);
+    sendData(name, phone, () => info.current.classList.remove(styles.hidden), () => infoError.current.classList.remove(styles.hidden),
+      () => submitButton.current.disabled = false);
     reset();
-    setValue('phone', undefined);
   };
 
   return (
@@ -42,7 +30,7 @@ export default function Form({ isActive, setActive }) {
             <input className={errors?.name ? styles.invalid : ''} {...register('name', {
               required: 'Обязательноe поле.',
               pattern: {
-                value: /^[а-яА-Яa-zA-Z]$/i,
+                value: /[а-яА-яa-zA-Z]/,
                 message: "Имя не должно содержать цифр."
               }
             })} placeholder='Имя' />
@@ -60,14 +48,14 @@ export default function Form({ isActive, setActive }) {
                   value: 15,
                   message: 'Номер должен содержать 11 цифр.'
                 },
-                onChange: (evt) => IMask(evt.target, { mask: '(000) 000-00-00' })
-              })} placeholder='(900) 000-00-00' />
+                onChange: (evt) => { evt.target.value = phoneMask(evt.target.value) }
+              })} placeholder='(900) 000-00-00' maxLength={15} />
             </div>
             {errors?.phone && <p className={styles.error}>{errors?.phone.message}</p>}
           </div>
           <button ref={submitButton} className={styles.submit}>Записаться</button>
         </form>
-        <a href='/#'>Политика конфиденциальности</a>
+        <p>Персональные данные не будут переданы третьим лицам.</p>
       </div>
 
       <div ref={info} className={`${styles.info} ${styles.hidden}`} onClick={(evt) => evt.target.classList.add(styles.hidden)}>

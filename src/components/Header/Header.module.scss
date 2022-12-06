@@ -28,4 +28,37 @@ header {
     vertical-align: middle;
     margin-right: 1vh;
   }
+
+  .desktopNav {
+    width: 100vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+
+    .nav {
+      display: flex;
+      column-gap: 120px;
+      list-style: none;
+      font-size: 1.4vh;
+      text-transform: uppercase;
+
+      a {
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &:active {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
 }

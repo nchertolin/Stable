@@ -9,7 +9,7 @@ export default function VideoBlock({ title, slogan, buttonText, video, setFormAc
       <section className={`${styles.section} abs-centred-section`}>
         <h1>{title}</h1>
         <h2>{slogan}</h2>
-        <Link className='button' to={to} onClick={() => setFormActive ? setFormActive(true) : false}>{buttonText}</Link>
+        {buttonText && <Link className='button' to={to} onClick={() => setFormActive ? setFormActive(true) : false}>{buttonText}</Link>}
       </section>
     </div>
   );

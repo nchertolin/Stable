@@ -24,7 +24,7 @@ function App({ isMobile }) {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Layout isMenuActive={isMenuActive} setMenuActive={() => menuHandler(isMenuActive, setMenuActive)} />}>
+        <Route path='/' element={<Layout isMenuActive={isMenuActive} setMenuActive={() => menuHandler(isMenuActive, setMenuActive)} isMobile={isMobile} />}>
           <Route index element={<Main />} />
           <Route path='programms' element={<Programms slogan='Для кристально чистого автомобиля снаружи и внутри.' banner={isMobile ? programmsBannerMobile : programmsBanner}
             programms={programms} />} />
