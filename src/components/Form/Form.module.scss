@@ -1,5 +1,7 @@
 @import '../../index.scss';
 
+$input-height: 6vh;
+
 .modal {
   position: fixed;
   display: flex;
@@ -42,12 +44,21 @@
       opacity: 0.5;
     }
   }
+
+  .name,
+  .phone {
+    margin-bottom: 3vh;
+
+    .error {
+      color: red;
+      margin-top: 1vh;
+    }
+  }
 }
 
 .content {
   position: absolute;
   top: 30%;
-  $input-height: 6vh;
   width: 40vh;
   height: 40vh;
   padding: 2vw;
@@ -60,22 +71,56 @@
 
   form {
     font-size: 1.5vh;
-    display: flex;
-    flex-direction: column;
-    row-gap: 3vh;
 
     input {
       font-family: Montserrat;
       font-weight: 500;
+      width: 100%;
       height: $input-height;
       padding: 2vh;
-      background-color: transparent;
       border: 1px solid $accent;
-      border-radius: 0;
+      background-color: transparent;
       color: $accent;
+      border-radius: 0;
+
+      &.invalid {
+        border-color: red;
+      }
 
       &:focus {
         outline: none;
+      }
+    }
+
+    .phoneWrapper {
+      padding: 2vh;
+      border: 1px solid $accent;
+      height: $input-height;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      column-gap: 0.5vh;
+
+      .country {
+        height: $input-height;
+        display: flex;
+        align-items: center;
+        column-gap: 1vh;
+
+        .flag {
+          height: 12px;
+        }
+      }
+
+
+      input[type='tel'] {
+        padding: 0;
+        font-size: 1.5vh;
+        border: 0;
+      }
+
+      &.invalid {
+        border-color: red;
       }
     }
 
@@ -83,6 +128,7 @@
       text-decoration: none;
       color: $accent;
       height: $input-height;
+      width: 100%;
       background-color: transparent;
       border: 1px $accent solid;
       border-radius: 0;
@@ -94,10 +140,18 @@
         background-color: $accent;
       }
     }
+  }
 
-    a {
-      display: block;
-      margin-top: 0.5vw;
+  a {
+    font-size: 1.5vh;
+    font-weight: 500;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.3;
     }
   }
 }

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { useRef } from 'react';
-import MaskedInput from 'react-text-mask';
+import { React, useRef } from 'react';
+import { useForm } from 'react-hook-form';
 import styles from './Form.module.scss';
+import flag from '../../assets/icons/russia.svg';
+import IMask from 'imask';
 
-const sendRequestToTelegram = (name, phone, onFinally, info, infoError) => {
-  const token = '5692087584:AAF5Jt4Wardrkb57J-m-IaWSCvNl3aMh5C4';
-  const chatId = -1001639677585;
-  fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${name}, ${phone}`)
+const sendData = (name, phone, onFinally, info, infoError) => {
+  fetch(`https://api.telegram.org/bot5692087584:AAF5Jt4Wardrkb57J-m-IaWSCvNl3aMh5C4/sendMessage?chat_id=-1001639677585&text=${name}, 7 ${phone}`)
     .then((response) => {
       if (response.ok) {
         info.current.classList.remove(styles.hidden);
@@ -17,36 +16,55 @@ const sendRequestToTelegram = (name, phone, onFinally, info, infoError) => {
 }
 
 export default function Form({ isActive, setActive }) {
-  const resetForm = () => {
-    setName('');
-    setPhone('');
-  };
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const form = useRef(null);
+  const { register, formState: { errors, }, getValues, setValue, handleSubmit, reset } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
   const submitButton = useRef(null)
   const info = useRef(null);
   const infoError = useRef(null);
 
-  const sendData = (evt) => {
-    evt.preventDefault();
-    resetForm();
+  const onSubmit = ({ name, phone }) => {
+    console.log(getValues());
     submitButton.current.disabled = true;
-    sendRequestToTelegram(name, phone, () => submitButton.current.disabled = false, info, infoError);
+    sendData(name, phone, () => submitButton.current.disabled = false, info, infoError);
+    reset();
+    setValue('phone', undefined);
   };
 
   return (
-    <div className={isActive ? `${styles.modal} ${styles.active}` : styles.modal}>
+    <div className={`${styles.modal} ${isActive ? styles.active : ''}`}>
       <button type='button' className={styles.close} onClick={() => {
-        resetForm();
+        reset();
         setActive(false)
       }}></button>
       <div className={styles.content}>
         <h4>Записаться</h4>
-        <form ref={form} autoComplete='off' onSubmit={sendData}>
-          <input type='text' name='name' mask={[/[a-zA-Zа-яА-Я]/]} placeholder='Имя' value={name} onChange={(evt) => setName(evt.target.value)} required minLength='2' />
-          <MaskedInput name='phone' type='tel' mask={['+', '7', ' ', '(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/]}
-            placeholder='+7 (999) 999-99-99' guide={true} value={phone} onChange={(evt) => setPhone(evt.target.value)} required />
+        <form autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.name}>
+            <input className={errors?.name ? styles.invalid : ''} {...register('name', {
+              required: 'Обязательноe поле.',
+              pattern: {
+                value: /^[а-яА-Яa-zA-Z]$/i,
+                message: "Имя не должно содержать цифр."
+              }
+            })} placeholder='Имя' />
+            {errors?.name && <p className={styles.error}>{errors?.name.message}</p>}
+          </div>
+          <div className={styles.phone}>
+            <div className={`${styles.phoneWrapper} ${errors?.phone ? styles.invalid : ''} `}>
+              <div className={styles.country}>
+                <img className={styles.flag} src={flag} alt="RU" />
+                <span>+7</span>
+              </div>
+              <input type='tel' {...register('phone', {
+                required: 'Обязательноe поле.',
+                minLength: {
+                  value: 15,
+                  message: 'Номер должен содержать 11 цифр.'
+                },
+                onChange: (evt) => IMask(evt.target, { mask: '(000) 000-00-00' })
+              })} placeholder='(900) 000-00-00' />
+            </div>
+            {errors?.phone && <p className={styles.error}>{errors?.phone.message}</p>}
+          </div>
           <button ref={submitButton} className={styles.submit}>Записаться</button>
         </form>
         <a href='/#'>Политика конфиденциальности</a>

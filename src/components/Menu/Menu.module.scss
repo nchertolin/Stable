@@ -23,8 +23,14 @@
     list-style: none;
     text-align: left;
 
-    .selected {
-      font-weight: bold;
+    .link {
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
     }
   }
 }

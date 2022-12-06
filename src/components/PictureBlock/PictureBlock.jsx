@@ -6,8 +6,7 @@ export default function PictureBlock({ picture, slogan }) {
     <div className='relative-div'>
       <img className={styles.banner} src={picture} alt=''></img>
       <section className={`${styles.section} abs-centred-section`}>
-        <h2 className>{slogan}</h2>
-        {/* <a className='button' href='/#'>Записаться</a> */}
+        <h2>{slogan}</h2>
       </section>
     </div>
   )
