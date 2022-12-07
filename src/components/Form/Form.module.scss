@@ -118,7 +118,8 @@ $input-height: 6vh;
       }
 
 
-      input[type='tel'] {
+      input[type='tel'],
+      .tel {
         padding: 0;
         font-size: 1.5vh;
         border: 0;
