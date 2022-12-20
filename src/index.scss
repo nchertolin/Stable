@@ -94,6 +94,7 @@ img {
 
 
   &:hover {
+    opacity: 1;
     color: $dark-accent;
     background-color: $accent;
     transition: all .3s;
@@ -106,4 +107,16 @@ img {
 
 button:hover {
   cursor: pointer;
+}
+
+a {
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }

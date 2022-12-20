@@ -43,18 +43,6 @@ header {
       list-style: none;
       font-size: 1.4vh;
       text-transform: uppercase;
-
-      a {
-        transition: all .2s ease-in-out;
-
-        &:hover {
-          opacity: 0.5;
-        }
-
-        &:active {
-          opacity: 0.3;
-        }
-      }
     }
   }
 
