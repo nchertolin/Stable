@@ -22,6 +22,8 @@ body {
   &.no-scroll {
     position: fixed;
   }
+
+  overflow-x: hidden;
 }
 
 .relative-div {
