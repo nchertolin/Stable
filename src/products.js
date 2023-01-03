@@ -70,7 +70,7 @@ const other = [
     picture: other2,
     prices: [],
     times: ['72ч', '100ч'],
-    description: ['Описание']
+    description: ['Химчистка салона с разбором']
   },
   {
     title: 'Удаление дорожной разметки',
