@@ -32,7 +32,7 @@ function App({ isMobile }) {
             programms={other} />} />
         </Route>
       </Routes>
-    </div>
+    </div >
   );
 }
 

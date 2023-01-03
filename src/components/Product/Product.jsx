@@ -18,18 +18,15 @@ export default function Product({ title, picture, prices, times, description }) 
         <div className={styles.inner} ref={contentRef}>
           <p className={styles.title}>{title}</p>
           <ul className={styles.price}>
-            {prices.map((price, index) =>
+            {(prices.length !== 0) ? prices.map((price, index) =>
               <li key={v4()}>
-                {/* <span key={v4()}>{index + 1}<br />класс</span> */}
                 <span className={styles.class} key={v4()}>{index + 1} класс</span>
                 <span className={styles.cost} key={v4()}>{price}</span>
               </li>
-            )}
+            ) : <li><span>Стоимость вычисляется при осмотре</span></li>}
           </ul>
           <span className={styles.time}>{times[0]} — {times[1]}</span>
-          {/* <span className={styles.time}>40мин — 1ч 20мин</span> */}
         </div>
-        {/* <div className={`${styles.description} hidden`} ref={descriptionRef}>{descriptions}</div> */}
         <div className={`${styles.description} hidden`} ref={descriptionRef}>
           {description.map(sentence => <p key={v4()}>-{sentence}</p>)}
         </div>

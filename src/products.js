@@ -61,21 +61,21 @@ const other = [
   {
     title: 'Экотуман',
     picture: other1,
-    prices: [500, 600, 700, 800, 900],
-    times: ['40мин', '1ч 20мин'],
-    description: ['Описание']
+    prices: [600, 700, 800, 900, 1000],
+    times: ['30мин', '40мин'],
+    description: ['Устрание неприятных запахов', 'Ароматизация']
   },
   {
     title: 'Химчистка',
     picture: other2,
-    prices: [500, 600, 700, 800, 900],
-    times: ['40мин', '1ч 20мин'],
+    prices: [],
+    times: ['72ч', '100ч'],
     description: ['Описание']
   },
   {
     title: 'Удаление дорожной разметки',
     picture: other3,
-    prices: [500, 600, 700, 800, 900],
+    prices: [],
     times: ['40мин', '1ч 20мин'],
     description: ['Описание']
   },
