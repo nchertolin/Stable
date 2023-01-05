@@ -2,7 +2,7 @@ import { React, useRef } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import styles from './Form.module.scss';
 import flag from '../../assets/icons/russia.svg';
-import { throttle, sendData } from '../../api.js';
+import { sendData } from '../../api.js';
 import MaskedInput from 'react-text-mask';
 
 export default function Form({ isActive, setActive }) {
