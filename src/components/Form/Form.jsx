@@ -20,8 +20,6 @@ export default function Form({ isActive, setActive }) {
 
   const onSubmit = ({ name, phone }) => {
     submitButton.current.disabled = true;
-    // throttle(() => sendData(name, phone, () => showMessage(succsessMessage.current), () => showMessage(errorMessage.current),
-    //   () => submitButton.current.disabled = false))
     sendData(name, phone, () => showMessage(succsessMessage.current), () => showMessage(errorMessage.current),
       () => submitButton.current.disabled = false);
     reset();
@@ -83,6 +81,7 @@ export default function Form({ isActive, setActive }) {
           </div>
           <button ref={submitButton} className={styles.submit}>Записаться</button>
         </form>
+        <p>Ханты-Мансйиск, Затонская 27</p>
         <p>Персональные данные не будут переданы третьим лицам.</p>
       </div>
 

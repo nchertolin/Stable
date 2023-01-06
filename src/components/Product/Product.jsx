@@ -28,7 +28,9 @@ export default function Product({ title, picture, prices, times, description }) 
           <span className={styles.time}>{times[0]} — {times[1]}</span>
         </div>
         <div className={`${styles.description} hidden`} ref={descriptionRef}>
-          {description.map(sentence => <p key={v4()}>-{sentence}</p>)}
+          <ul className={styles.descriptionList}>
+            {description.map(sentence => <li key={v4()}>{sentence}</li>)}
+          </ul>
         </div>
         <button className={styles.button} ref={buttonRef} onClick={() => showDesription(contentRef, descriptionRef, buttonRef)}>Описание</button>
       </div>

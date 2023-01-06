@@ -31,7 +31,7 @@ header {
 
   .desktopNav {
     width: 100vw;
-    height: 7vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,6 +43,12 @@ header {
       list-style: none;
       font-size: 1.4vh;
       text-transform: uppercase;
+
+      .active {
+        font-weight: bold;
+        text-decoration: underline;
+        text-underline-offset: 8px;
+      }
     }
   }
 

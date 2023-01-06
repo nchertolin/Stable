@@ -1,47 +1,53 @@
 .modal {
   position: fixed;
   top: 0;
-  left: -50vw;
-  width: 50vw;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   font-size: 1.5vh;
-  background-color: #121212;
-  z-index: 1;
-  transition: all .3s ease;
+  background-color: #12121224;
+  backdrop-filter: blur(10px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .3s ease;
 
   &.active {
-    left: 0;
+    opacity: 1;
+    z-index: 1;
   }
 
   .nav {
     position: absolute;
-    top: 42%;
-    left: 18%;
+    top: 40%;
+    left: 10%;
     display: flex;
     flex-direction: column;
     row-gap: 2.5vh;
     list-style: none;
     text-align: left;
+    text-align: center;
+
+    li {
+      position: relative;
+      display: flex;
+      column-gap: 3vw;
+
+      img {
+        width: 3vh;
+      }
+
+    }
   }
 }
 
-#main::before {
-  display: inline-block;
-  content: url(../../assets/icons/home.svg);
-  margin-right: 1.5vw;
-  vertical-align: middle;
-}
+.link {
+  font-size: 2.5vh;
+  font-weight: 500;
 
-#programms::before {
-  display: inline-block;
-  content: url(../../assets/icons/programms.svg);
-  margin-right: 1.5vw;
-  vertical-align: middle;
-}
-
-#other::before {
-  display: inline-block;
-  content: url(../../assets/icons/other.svg);
-  margin-right: 1.5vw;
-  vertical-align: middle;
+  &.active {
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
+  }
 }
