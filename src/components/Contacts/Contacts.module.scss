@@ -1,6 +1,7 @@
 @import '../../index.scss';
 
 .contacts {
+  scroll-snap-align: start;
   width: 100vw;
   height: 100vh;
   display: flex;

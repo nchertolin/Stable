@@ -9,7 +9,7 @@
   backdrop-filter: blur(10px);
   z-index: -1;
   opacity: 0;
-  transition: opacity .3s ease;
+  transition: all .3s ease;
 
   &.active {
     opacity: 1;
@@ -28,8 +28,8 @@
     text-align: center;
 
     li {
-      position: relative;
       display: flex;
+      align-items: center;
       column-gap: 3vw;
 
       img {

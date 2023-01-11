@@ -2,12 +2,11 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Main from './components/Main/Main';
 import Programms from './components/Programms/Programms';
-import { useState } from 'react';
-import programmsBanner from './assets/pictures/programms/banner.jpg';
-import programmsBannerMobile from './assets/pictures/programms/mobile/banner.jpg';
-import otherBanner from './assets/pictures/other/banner.jpg';
-import otherBannerMobile from './assets/pictures/other/mobile/banner.jpg';
+import { useState, useEffect } from 'react';
 import { programms, other } from './products.js';
+import first from './assets/videos/1.mp4';
+import second from './assets/videos/2.mp4';
+import third from './assets/videos/3.mp4';
 
 export const menuHandler = (isActive, setMenuActive) => {
   if (isActive) {
@@ -25,10 +24,10 @@ function App({ isMobile }) {
     <div className="App">
       <Routes>
         <Route path='/' element={<Layout isMenuActive={isMenuActive} setMenuActive={() => menuHandler(isMenuActive, setMenuActive)} isMobile={isMobile} />}>
-          <Route index element={<Main />} />
-          <Route path='programms' element={<Programms slogan='Для кристально чистого автомобиля снаружи и внутри.' banner={isMobile ? programmsBannerMobile : programmsBanner}
+          <Route index element={<Main videos={[first, second, third]} />} />
+          <Route path='programms' element={<Programms pageName='Программы' slogan='Для кристально чистого автомобиля снаружи и внутри.' video={second}
             programms={programms} />} />
-          <Route path='other' element={<Programms slogan='Запах новой машины.' banner={isMobile ? otherBannerMobile : otherBanner}
+          <Route path='other' element={<Programms pageName='Дополнительно' slogan='Запах новой машины.' video={third}
             programms={other} />} />
         </Route>
       </Routes>

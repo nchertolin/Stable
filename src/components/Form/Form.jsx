@@ -38,7 +38,7 @@ export default function Form({ isActive, setActive }) {
         <form autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
 
           <div className={styles.name}>
-            <input className={errors?.name ? styles.invalid : ''} {...register('name', {
+            <input type='text' className={errors?.name ? styles.invalid : ''} {...register('name', {
               required: 'Обязательноe поле.',
               pattern: {
                 value: /[а-яА-яa-zA-Z]/,
@@ -66,6 +66,7 @@ export default function Form({ isActive, setActive }) {
                 }}
                 render={({ field }) => (
                   <MaskedInput
+                    type='tel'
                     className={styles.tel}
                     mask={['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/]}
                     placeholder='(900) 000-00-00'

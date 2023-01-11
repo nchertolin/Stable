@@ -26,9 +26,18 @@ body {
   overflow-x: hidden;
 }
 
+.fullpage-scroll {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
 .relative-div {
+  scroll-snap-align: start;
   position: relative;
   margin-bottom: 0;
+
 }
 
 .abs-centred-section {
