@@ -4,7 +4,7 @@ import VideoBlock from '../VideoBlock/VideoBlock';
 import Contacts from '../Contacts/Contacts';
 import Form from '../Form/Form';
 import { menuHandler } from '../../App.js';
-export default function Main({ videos }) {
+export default function Main({ videos, isMobile }) {
   const [isFormActive, setFormActive] = useState(false);
   return (
     <div className='fullpage-scroll'>
@@ -21,7 +21,7 @@ export default function Main({ videos }) {
         setFormActive={() => menuHandler(isFormActive, setFormActive)} />
       <VideoBlock slogan='Для кристально чистого автомобиля снаружи и внутри.' buttonText='Показать' video={videos[1]} to='/programms' />
       <VideoBlock title='Наша философия.' slogan='Мы работаем усердно. Мы заботимся. Мы веселимся.' video={videos[2]} />
-      <Contacts />
+      <Contacts isMobile={isMobile} />
       <Form isActive={isFormActive} setActive={() => menuHandler(isFormActive, setFormActive)} />
     </div>
   )

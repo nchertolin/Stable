@@ -1,53 +1,39 @@
 .modal {
   position: fixed;
+  display: flex;
+  align-items: center;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: -80vw;
+  width: 80vw;
   height: 100vh;
-  font-size: 1.5vh;
-  background-color: #12121224;
-  backdrop-filter: blur(10px);
-  z-index: -1;
-  opacity: 0;
+  background-color: #121212;
   transition: all .3s ease;
 
   &.active {
-    opacity: 1;
-    z-index: 1;
+    left: 0;
   }
 
   .nav {
-    position: absolute;
-    top: 40%;
-    left: 10%;
+    width: 80vw;
+    margin-left: 6vw;
     display: flex;
     flex-direction: column;
-    row-gap: 2.5vh;
+    row-gap: 1vh;
     list-style: none;
     text-align: left;
-    text-align: center;
-
-    li {
-      display: flex;
-      align-items: center;
-      column-gap: 3vw;
-
-      img {
-        width: 3vh;
-      }
-
-    }
   }
 }
 
 .link {
-  font-size: 2.5vh;
+  display: flex;
+  align-items: center;
+  width: 88%;
+  height: 5vh;
+  font-size: 2vh;
   font-weight: 500;
+  padding-left: 5vw;
 
   &.active {
-    font-weight: bold;
-    text-decoration: underline;
-    text-underline-offset: 8px;
-    text-decoration-thickness: 2px;
+    background-color: #434242;
   }
 }

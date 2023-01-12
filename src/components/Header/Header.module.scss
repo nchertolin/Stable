@@ -4,29 +4,23 @@ header {
   z-index: 2;
   transition: all .3s ease;
 
-  .menu,
-  .close {
+  .menu {
     border: none;
     background-color: transparent;
-    padding: 9%;
+    padding: 8vw;
+    margin-left: 3vw;
     font-size: 1.6vh;
     font-weight: 500;
     text-decoration: none;
     color: white;
 
-    &::before {
-      display: inline-block;
-      content: url('../../assets/icons/menu.svg');
-      vertical-align: middle;
-      margin-right: 1vh;
+    &:hover {
+      opacity: 1;
     }
-  }
 
-  .close::before {
-    display: inline-block;
-    content: url('../../assets/icons/close.svg');
-    vertical-align: middle;
-    margin-right: 1vh;
+    img {
+      width: 2.7vh;
+    }
   }
 
   .desktopNav {

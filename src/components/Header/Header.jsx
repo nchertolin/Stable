@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
+import menu from '../../assets/icons/menu.svg';
+import close from '../../assets/icons/close.svg';
 
 export default function Header({ isMenuActive, setMenuActive, isMobile }) {
 
@@ -8,7 +10,9 @@ export default function Header({ isMenuActive, setMenuActive, isMobile }) {
   return (
     <header>
       <div className={isMobile ? '' : 'hidden'}>
-        <button className={isMenuActive ? styles.close : styles.menu} onClick={setMenuActive}></button>
+        <button className={styles.menu} onClick={setMenuActive}>
+          <img src={isMenuActive ? close : menu} alt={isMenuActive ? 'Закрыть' : 'Меню'} />
+        </button>
       </div>
 
       <div className={`${isMobile ? styles.hidden : ''} ${styles.desktopNav}`}>

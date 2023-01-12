@@ -24,7 +24,7 @@ function App({ isMobile }) {
     <div className="App">
       <Routes>
         <Route path='/' element={<Layout isMenuActive={isMenuActive} setMenuActive={() => menuHandler(isMenuActive, setMenuActive)} isMobile={isMobile} />}>
-          <Route index element={<Main videos={[first, second, third]} />} />
+          <Route index element={<Main videos={[first, second, third]} isMobile={isMobile} />} />
           <Route path='programms' element={<Programms pageName='Программы' slogan='Для кристально чистого автомобиля снаружи и внутри.' video={second}
             programms={programms} />} />
           <Route path='other' element={<Programms pageName='Дополнительно' slogan='Запах новой машины.' video={third}
